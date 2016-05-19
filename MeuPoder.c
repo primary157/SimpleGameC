@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define pi 3.14
 struct 
 {	
 	int x, y;	
@@ -22,7 +21,6 @@ void print_frame()
 
 int main()
 {
-	printf("pi");
 	FILE *save;
 	char key;
 
