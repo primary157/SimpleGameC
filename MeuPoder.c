@@ -5,24 +5,24 @@ int main()
 {
     FILE *save;
     char key;
-    int character[2];
+    int position[2];
     if((save = fopen("save.dat","r")) == NULL)
     {
-        character[0] = character[1] = 5;
+        position[0] = position[1] = 5;
     }
     else
     {
-        fscanf(save,"%d %d", &character[0], &character[1] );
+        fscanf(save,"%d %d", &position[0], &position[1] );
     	fclose(save);
     }
 
-    printf("Press Q to close the program\n Press W,S,A,D to move the character!\n");
+    printf("Press Q to close the program\n Press W,S,A,D to move the position!\n");
     do{
 
         for(int i = 0; i < 7; i++)
         {
             for(int j = 0; j < 7; j++){
-                if(character[0] == i && character[1] == j)
+                if(position[0] == i && position[1] == j)
                     printf("o\t");
                 else
                     printf("x\t");
@@ -33,20 +33,20 @@ int main()
         getchar();          //n sei pq isso existe!!
 
 
-        if((key == 'a') && (character[1] > 0))
-            character[1] = character[1] - 1;
+        if((key == 'a') && (position[1] > 0))
+            position[1] = position[1] - 1;
         else
         {
-            if((key == 'd')  && (character[1] < 6))
-                character[1] = character[1] + 1;
+            if((key == 'd')  && (position[1] < 6))
+                position[1] = position[1] + 1;
             else
             {
-                if((key == 'w')  && (character[0] > 0))
-                    character[0] = character[0] - 1;
+                if((key == 'w')  && (position[0] > 0))
+                    position[0] = position[0] - 1;
                 else
                 {
-                    if((key == 's')  && (character[0] < 6))
-                        character[0] = character[0] + 1;
+                    if((key == 's')  && (position[0] < 6))
+                        position[0] = position[0] + 1;
                 }
             }
         }
@@ -58,7 +58,7 @@ int main()
     }
     else
     {
-	    fprintf(save, "%d %d", character[0], character[1]);
+	    fprintf(save, "%d %d", position[0], position[1]);
     }
     fclose(save);
     return 0;
