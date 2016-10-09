@@ -1,4 +1,4 @@
-CC=gcc
+CC=gcc -std=c11
 EXEC=main
 OBJ=main.o MeuPoder.o
 all: $(EXEC)
